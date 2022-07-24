@@ -546,9 +546,10 @@ const LockHistory = () => {
             completed.
           </p>
           <p className="text-xs md:text-sm mt-2">
-            - You cannot unstake before your staking period has been fully
-            completed.
+          - You can have only 2 active staking instances at the same 
+time.
           </p>
+       
         </div>
       </div>
     </div>
