@@ -80,6 +80,7 @@ const WithdrawalHistory = () => {
         </select>
       </div>
 
+
       <section className="container my-7 mx-auto">
       <div className="overflow-x-auto rounded  mx-1 ">
             <table className=" table table-compact w-11/12 mx-auto  shadow-lg text-center font-bold mb-16">

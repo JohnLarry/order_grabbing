@@ -2,5 +2,18 @@
   text-align: center;
 }
 
+.btn:hover{
+  background-color: rgba(0, 0, 0, 0.297);
+  color:white;
+  border: 2px solid blue;
 
+
+}
+button:hover{
+  background-color: rgba(0, 0, 0, 0.297);
+  color:white;
+  border: 2px solid blue;
+
+
+}
 

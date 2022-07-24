@@ -26,7 +26,7 @@ const Navber = () => {
         <span className="text-xs md:text-xl btm-nav-label">Home</span>
       </Link>
       <Link
-        to="/grab-history"
+        to="/lock-history"
         className=" bg-neutral text-neutral-content hover:bg-pink-200 hover:text-pink-600 flex flex-col items-center p-5 justify-center"
       >
         <svg
@@ -43,10 +43,12 @@ const Navber = () => {
             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        <span className="text-xs md:text-xl btm-nav-label">History</span>
+        <span className="text-xs md:text-xl btm-nav-label">Staking
+</span>
       </Link>
+
       <Link
-        to="/deposit"
+        to="/order-grab"
         className=" bg-neutral text-neutral-content hover:bg-pink-200 hover:text-pink-600 flex flex-col items-center p-5 justify-center"
       >
         <svg
@@ -63,10 +65,11 @@ const Navber = () => {
             d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
           />
         </svg>
-        <span className="text-xs md:text-xl">Deposit</span>
+        <span className="text-xs md:text-xl">Grab</span>
       </Link>
+
       <Link
-        to="/withdraw"
+        to="/deposit"
         className=" bg-neutral text-neutral-content hover:bg-pink-200 hover:text-pink-600 flex flex-col items-center p-5 justify-center"
       >
         <svg
@@ -83,11 +86,11 @@ const Navber = () => {
             d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
           />
         </svg>
-        <span className="text-xs md:text-xl">Withdraw</span>
+        <span className="text-xs md:text-xl">Deposit</span>
       </Link>
 
       <Link
-        to="/profile"
+        to="/withdraw"
         className="bg-neutral text-neutral-content hover:bg-pink-200 hover:text-pink-600 flex flex-col items-center p-5 justify-center"
       >
         <svg
@@ -104,7 +107,7 @@ const Navber = () => {
             d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
           />
         </svg>
-        <span className="text-xs md:text-xl btm-nav-label">Profile</span>
+        <span className="text-xs md:text-xl btm-nav-label">Withdraw</span>
       </Link>
     </div>
   );

@@ -21,7 +21,7 @@ import { updateDashboardMessage } from "../../store/slice";
 import teamReport from "../../images/eb36604.svg";
 import wheelSpin from "../../images/wheelSpinBgrmv.png";
 import account from "../../images/88ac34a.svg";
-// import wheelSpin from "../../images/wheelSpin.jpg";
+
 const Home = () => {
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 

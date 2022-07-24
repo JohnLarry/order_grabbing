@@ -7,7 +7,7 @@ import PersonalInfo from "./components/PersonalInfo/PersonalInfo";
 import Withdraw from "./components/Withdraw/Withdraw";
 import CurrentLevel from "./components/Vip/CurrentLevel";
 import Summary from "./components/Vip/Summary";
-import Profile from "./components/Profile/Profile";
+// import Profile from "./components/Profile/Profile";
 
 import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
 import About from "./components/About/About";
@@ -15,7 +15,7 @@ import OrderGrab from "./components/OrderGrab/OrderGrab";
 import OrderHistory from "./components/OrderHistory/OrderHistory";
 import Promo from "./components/Promo/Promo";
 import RuleDescription from "./components/RuleDescription/RuleDescription";
-import Home from "./components/Home/Home";
+// import Home from "./components/Home/Home";
 import NotFound from "./components/NotFound/NotFound";
 import TeamReport from "./components/TeamReport/TeamReport";
 import DepositAndWithdrawal from "./components/TeamReport/DepositAndWithdrawal";
@@ -34,13 +34,14 @@ import ProtectedRoute from "./protectedRoute";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Profile from "./components/Home/Profile"
 
 function App() {
   return (
     <div className="app">
       <Routes>
         <Route path="/" element={<ProtectedRoute />}>
-          <Route path="/" element={<Home></Home>} />
+          <Route path="/" element={<Profile></Profile>} />
         </Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
@@ -64,6 +65,7 @@ function App() {
           element={<CurrentLevel></CurrentLevel>}
         ></Route>
         <Route path="/summary" element={<Summary></Summary>}></Route>
+        
         <Route path="/profile" element={<Profile></Profile>}></Route>
 
         <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>

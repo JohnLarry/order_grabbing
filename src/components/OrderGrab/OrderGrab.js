@@ -8,6 +8,7 @@ import { updateSummary } from "../../store/slice";
 import { updateUser } from "../../store/slice";
 import { toast } from 'react-toastify';
 import usdt from "../../images/usdt.png";
+import Typewriter from "../../Shared/Typewriter";
 
 const OrderGrab = () => {
   const dispatch = useDispatch();
@@ -141,6 +142,8 @@ const OrderGrab = () => {
       });
   }, []);
   const user = useSelector((state) => state.user.data);
+  const typeWriter = ["Please wait...", "Matching...", "confirming...","Order placing..."];
+  // 
 
   return (
 
@@ -196,7 +199,7 @@ const OrderGrab = () => {
                     <p className=" text-emerald-800 mb-7">
                       Order grabbing... the result will be shown below
                     </p>
-                    <button type="button" className="btn bg-indigo-500 ..." >
+                    <button type="button" className=" btn bg-indigo-500 ... min-w-[150px] max-w-[200px]" >
                       <svg
                         role="status"
                         className="inline w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -213,7 +216,8 @@ const OrderGrab = () => {
                           fill="currentFill"
                         />
                       </svg>
-                      Order Placing...
+                      <Typewriter data={typeWriter}></Typewriter>
+                    
                     </button></>
                 }
               </div>
@@ -253,6 +257,7 @@ const OrderGrab = () => {
                 </div>
 
                 <div className="stat px-3 md:px-2 lg:px-5 text-center">
+
                  
                   <div className="text-slate-500 "> Team Commission</div>
                   <div className="stat-value  lg:text-4xl md:text-3xl text-2xl">
@@ -343,9 +348,13 @@ const OrderGrab = () => {
                       <p className="font-bold text-center text-2xl md:text-2xl  lg:text-2xl text-wrap text-white">
                         Order sent successfully
                       </p>
+                      {/* amount.replace('$',''); */}
                       <div className=" my-2 font-bold">
                         <p className="text-right"> Orders left : {grabProducts.left_order}</p>
-                        <p className="text-left"> Order Price : {grabProducts.data.product.price1 == null ? grabProducts.data.product.price : grabProducts.data.product.price1}</p>
+                        <p className="text-left"> Order Price : 
+                        {grabProducts.data.product.price1 == null ? grabProducts.data.product.price.replace('$','') : grabProducts.data.product.price1.replace('$','')} <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" />
+                        
+                        </p>
                         <p className="text-right"> Order Commision : {grabProducts.data.commission} <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" /></p>
                        
                        

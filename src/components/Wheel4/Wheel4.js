@@ -6,6 +6,7 @@ import swal from 'sweetalert';
 import { authkey } from "../Login/authkey";
 import './Wheel4.css'
 import { IoIosArrowBack } from "react-icons/io";
+import { AiFillQuestionCircle } from 'react-icons/ai';
 
 const Wheel4 = () => {
 
@@ -24,12 +25,37 @@ const Wheel4 = () => {
 
     ];
 
+    
+
     const [winner, setWinner] = useState(0);
 
     const [mustSpin, setMustSpin] = useState(false);
     const [prizeNumber, setPrizeNumber] = useState(0);
     const [winDataT, setWinDataT] = useState({});
     const [test, setTest] = useState(0);
+
+    const [userName, setUserName] = useState(0);
+
+    var dashboard = new FormData();
+    dashboard.append("dashboard", "");
+    dashboard.append("auth", authkey);
+    dashboard.append("logged", localStorage.getItem("auth"));
+    useEffect(() => {
+      fetch("https://mining-nfts.com/api/", {
+        method: "POST",
+        body: dashboard,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status == 200) {
+           
+            setUserName(data.message.user[0]);
+  
+          }
+        });
+    }, []);
+
+
 
     const navigate = useNavigate();
     useEffect(() => {
@@ -163,14 +189,41 @@ const Wheel4 = () => {
             </div>
 
             <div className="wheel-decider">
-                <div id="successInfo" className="my-4 text-xl text-center text-slate-800"> <br />
-                    <span className="font-bold lg:text-4xl ">Daily Free Spins: </span>
+                <div id="successInfo" className="my-4 text-xl text-center text-slate-800">
+                    <span className="font-bold  ">Daily Free Spins: </span>
                     {winDataT.spinLeft <= 0 ? <span className="font-bold lg:text-xl pt-5 pb-16 text-blue-800">0</span>
 
                         :
                         <span className="font-bold lg:text-xl pt-5 pb-16 text-blue-800">1  {winDataT.spinLeft} </span>
 
                     }
+                    <span>  <label
+                        htmlFor="my-modal-8"
+                        className="btn p-0 modal-button bg-transparent border-0 hover:bg-transparent"
+                    >
+                        <AiFillQuestionCircle className=" text-error text-xl"></AiFillQuestionCircle>
+                    </label>
+                        <input
+                            type="checkbox"
+                            id="my-modal-8"
+                            className="modal-toggle"
+                        />
+                        <div className="modal">
+                            <div className="modal-box relative">
+                                <label
+                                    htmlFor="my-modal-8"
+                                    className="btn btn-xs btn-circle absolute right-2 top-2"
+                                >
+                                    ✕
+                                </label>
+
+                                <p className="text-xs md:text-sm mt-10">
+                                    Free daily spins do not accumulate.
+                                    You are limited to 1 unused free spin.
+                                </p>
+                            </div>
+                        </div>
+                    </span>
                 </div>
             </div>
 
@@ -220,7 +273,7 @@ const Wheel4 = () => {
                             removed upon use from your Grab Balance.</p>
                         <h2 className="card-title font-bold">
                             <span className="text-teal-900"> Good luck,</span>
-                            <span className="text-blue-800"> username here !</span></h2>
+                            <span className="text-blue-800"> {userName?.username}!</span></h2>
 
                     </div>
                 </div>

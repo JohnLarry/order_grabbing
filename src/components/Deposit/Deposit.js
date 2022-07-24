@@ -104,7 +104,7 @@ const Deposit = () => {
               <h2 className="font-bold text-base md:text-xl  lg:text-xl">
                 <i className="fa-solid fa-clock"></i> Time left to pay :{" "}
                 <span className="text-green-600">
-                  {" "}
+                
                   <Countdown date={Date.now() + 3600000} renderer={renderer} />
                 </span>{" "}
               </h2>
