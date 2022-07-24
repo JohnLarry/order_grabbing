@@ -115,7 +115,7 @@ const Wheel4 = () => {
     }
 
 
-   
+
 
 
     const handleSpinClick = () => {
@@ -152,20 +152,23 @@ const Wheel4 = () => {
 
 
     return (
-        <div className="container max-w-[1080] mx-auto my-5">
-            <div className="bg-base-200 p-5 rounded-xl mb-5 flex items-center justify-between">
-                <Link to="/profile">
-                    <IoIosArrowBack></IoIosArrowBack>
+        <div className="container max-w-[1080] mx-auto ">
+            <div className="bg-base-200 px-4 py-2 rounded-xl mt-5 mx-3 flex items-center justify-between">
+                <Link to="/profile" className="btn btn-base-200 rounded-full px-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg> Back
                 </Link>
-              
+                <h1 className="text-xl font-bold text-center"> Wheel of Fortune</h1>
             </div>
+
             <div className="wheel-decider">
-                <div id="successInfo" className="text-center text-slate-800"> <br />
-                    <h1 className="font-bold lg:text-4xl ">Lucky Wheel!!!</h1>
-                    {winDataT.spinLeft <= 0 ? <h4 className="font-bold lg:text-xl pt-5 pb-16 text-blue-800">Free Spin 0</h4>
+                <div id="successInfo" className="my-4 text-xl text-center text-slate-800"> <br />
+                    <span className="font-bold lg:text-4xl ">Daily Free Spins: </span>
+                    {winDataT.spinLeft <= 0 ? <span className="font-bold lg:text-xl pt-5 pb-16 text-blue-800">0</span>
 
                         :
-                        <h4 className="font-bold lg:text-xl pt-5 pb-16 text-blue-800">Free Spin  {winDataT.spinLeft} </h4>
+                        <span className="font-bold lg:text-xl pt-5 pb-16 text-blue-800">1  {winDataT.spinLeft} </span>
 
                     }
                 </div>
@@ -189,7 +192,6 @@ const Wheel4 = () => {
             </div>
 
             <div className="wheel-decider">
-
                 {winDataT.spinLeft <= 0 ?
                     <button type="button" disabled={mustSpin == true} onClick={handleSpinClick} className="btn btn-primary" >Spin For 5$</button>
                     :
@@ -197,28 +199,28 @@ const Wheel4 = () => {
                         Free Spin
                     </button>
                 }
-
             </div>
 
             <div className="wheel-decider">
                 <div >
-
-
                     <h2 className="text-2xl font-bold py-8">
                         {mustSpin == true
                             ? (<span className="pl-2"></span>)
-                            :(<span className="pl-2"> You win  {winner.option}</span>)
+                            : (<span className="pl-2"> You win  {winner.option}</span>)
                         }</h2>
                 </div>
-
-
             </div>
 
             <div className="wheel-decider">
                 <div className="text-slate-800 my-10 card w-full bg-white rounded shadow-xl mx-5">
                     <div className="card-body">
-                        <h2 className="card-title">Rules Description!</h2>
-                        <p className="text-justify">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt delectus dolores quo libero? Quidem autem obcaecati sit necessitatibus, aut blanditiis mollitia doloribus rem quod inventore.</p>
+
+                        <p className="text-justify">After you depleted your free daily spin you can try your luck with
+                            more spins. Each spin will cost you 5 USDT which will automatically
+                            removed upon use from your Grab Balance.</p>
+                        <h2 className="card-title font-bold">
+                            <span className="text-teal-900"> Good luck,</span>
+                            <span className="text-blue-800"> username here !</span></h2>
 
                     </div>
                 </div>

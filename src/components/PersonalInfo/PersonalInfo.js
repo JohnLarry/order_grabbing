@@ -144,12 +144,14 @@ const PersonalInfo = () => {
   };
 
   return (
-    <div className="container max-w-[1080px] mx-auto p-5">
-      <div className="bg-base-200 p-5 rounded-xl mb-5 flex items-center justify-between">
-        <Link to="/profile">
-          <IoIosArrowBack></IoIosArrowBack>
+    <div className="container max-w-[1080px] mx-auto ">
+        <div className="bg-base-200 px-4 py-2 rounded-xl my-5 mx-3 flex items-center justify-between">
+        <Link to="/" className="btn btn-base-200 rounded-full px-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg> Back
         </Link>
-        <h1 className="text-xl font-bold text-center">Personal Info</h1>
+        <h1 className="text-xl font-bold text-center">Profile </h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div className="card mx-auto bg-base-200 shadow-xl w-full">

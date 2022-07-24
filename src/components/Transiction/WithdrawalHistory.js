@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { authkey } from "../Login/authkey";
+import Transiction from "./Transiction";
 
 const WithdrawalHistory = () => {
   const [dataLimit, setDataLimit] = useState();
@@ -56,28 +57,15 @@ const WithdrawalHistory = () => {
   }
 
   return (
-    <div className="container max-w-[1080px] mx-auto p-5">
-      <div className="bg-base-200 p-5 rounded-xl mb-5 flex items-center justify-between">
-        <Link to="/profile">
-          <IoIosArrowBack></IoIosArrowBack>
-        </Link>
-        <h1 className="text-xl font-bold text-center">Transaction</h1>
-      </div>
-      <div className="flex justify-between max-w-[600px]  md:mx-auto">
-        <div className="flex flex-col items-center">
-          <Link to="/withdrawal-history">Withdrawal History</Link>
-          <div className="h-[2px] w-6 bg-primary"></div>
-        </div>
-        <div className="flex flex-col items-center">
-          <Link to="/deposit-history">Deposit History </Link>
-          <div className="h-[2px] w-6 bg-primary"></div>
-        </div>
-      </div>
-      <div className="flex justify-between my-10">
+    <div >
+      <Transiction></Transiction>
+    <div className="container my-5 mx-auto max-w-[1080]">
+      
+      <div className="flex justify-between  mx-3">
         <select
           id="dataLimit"
           onChange={(e) => setDataLimit(e.target.value)}
-          className="select select-secondary select-bordered w-[150px] max-w-xs"
+          className="mx-auto select select-info select-bordered w-full  "
         >
 
           <option value={1} defaultValue selected>
@@ -91,14 +79,14 @@ const WithdrawalHistory = () => {
           <option vlaue={7}>All</option>
         </select>
       </div>
-      <div>
-        <div className="overflow-x-auto">
-          <table className=" table table-compact w-full text-center font-bold">
+
+      <section className="container my-7 mx-auto">
+      <div className="overflow-x-auto rounded  mx-1 ">
+            <table className=" table table-compact w-11/12 mx-auto  shadow-lg text-center font-bold mb-16">
             <thead>
               <tr>
                 <th></th>
-                <th>Account</th>
-
+                <th>ACCOUNT</th>
                 <th>Amount</th>
                 <th>Status</th>
                 <th>Time</th>
@@ -151,8 +139,10 @@ const WithdrawalHistory = () => {
             ))}
           </table>
         </div>
-      </div>
+      </section>
     </div>
+    
+  </div>
   );
 };
 

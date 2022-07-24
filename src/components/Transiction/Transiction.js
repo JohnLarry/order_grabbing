@@ -1,28 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { IoIosArrowBack } from "react-icons/io";
+
 
 const Transiction = () => {
   return (
-    <div className="container max-w-[1080px] mx-auto p-5">
-      <div className="bg-base-200 p-5 rounded-xl mb-5 flex items-center justify-between">
-        <Link to="/">
-          <IoIosArrowBack></IoIosArrowBack>
+    <div className="container max-w-[1080px] mx-auto ">
+       <div className="bg-base-200 px-4 py-2 rounded-xl my-5 mx-3 flex items-center justify-between">
+        <Link to="/" className="btn btn-base-200 rounded-full px-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg> Back
         </Link>
-        <h1 className="text-xl font-bold text-center">Team Report</h1>
+        <h1 className="text-xl font-bold text-center">Transaction History</h1>
       </div>
 
-      <div className="flex justify-between max-w-[600px] md:mx-auto">
-        <div className="flex flex-col items-center">
-          <Link to="/withdrawal-history">Withdrawal History</Link>
-          <div className="h-[2px] w-6 bg-primary"></div>
-        </div>
-        <div className="flex flex-col items-center">
-          <Link to="/deposit-history">Deposit History</Link>
-          <div className="h-[2px] w-6 bg-primary"></div>
+      <div className="  my-2 ">
+        <div className="container mx-auto max-w-[1080]">
+          <section className=" mx-3">
+            <div className="flex justify-between max-w-[600px] md:mx-auto">
+              <div className="flex flex-col items-center">
+                <Link to="/withdrawal-history"><button className="px-2 btn btn-blue-400 boder-0 rounded-lg shadow">Withdrawal History</button></Link>               
+              </div>
+              <div className="flex flex-col items-center">
+                <Link to="/deposit-history"><button className="px-2 btn btn-blue-400 boder-0 rounded-lg shadow">Deposit History</button></Link>            
+              </div>
+            </div>
+          </section>
         </div>
       </div>
-        
     </div>
   );
 };

@@ -57,7 +57,7 @@ const Deposit = () => {
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
           </svg> Back
         </Link>
-        <h1 className="text-xl font-bold text-center">Deposite</h1>
+        <h1 className="text-xl font-bold text-center">Deposit</h1>
       </div>
 
 
@@ -67,10 +67,8 @@ const Deposit = () => {
 
             <h3 className="font-bold">
               <p>
-                Minimum Amount: <span> {deposits?.message?.min_amount}
-
-                  <> </> <span>{deposits?.message?.currency} <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" /></span>
-
+                Minimum Amount: <span className="pl-1"> {deposits?.message?.min_amount}
+                   <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" />
                 </span>
               </p>
 
@@ -79,33 +77,25 @@ const Deposit = () => {
               <span>Network: </span>
               <span className="uppercase">{deposits?.message?.network}</span>
             </h4>
+          
+            <div className=" inline my-2">
+            <h4 className=" px-1 py-1 font-bold text-base">Address</h4>
+              <div className="form-control bg-white py-4 inline rounded ">
 
-            <div className="form-control">
-              {/* <div className="bg-white  py-2  rounded ">
-                <div className="flex">
-                  <input
-                    type="email"
-                    className="inputt border-0 "
-                    placeholder="Your email"
-                  />
-                  <button className="btn btn-success  mx-1 font-bold">
-                    Send <i className="fa-solid fa-paper-plane"></i>
-                  </button>
-                </div>
+                <label className="input-group ">
+                  
+                  <input id="copy" type="text" style={{ width: deposits?.message?.address.length * 9 + "px" }} value={deposits?.message?.address} className="border-0  inputt outline-0 rounded input input-bordered bg-white " readOnly />
+                  <span className=" bg-slate-900 text-white font-bold" onClick={() => {
+                    navigator.clipboard.writeText(document.getElementById('copy').value); document.getElementById('htmlCah').innerHTML = `Copied`;
+                    setTimeout(function () {
+                      document.getElementById('htmlCah').innerHTML = `Copy`;
+                    }, 5000);
+                  }}>
+                    <div className=" bg-slate-900 text-white font-bold" id='htmlCah'>Copy</div>
+                  </span>
+                </label>
+              </div>
 
-              </div> */}
-              <label className="input-group ">
-                <span className="bg-white px-1 ">Address</span>
-                <input className="border-0 bg-white inputt outline-0" id="copy" type="text" style={{ width: deposits?.message?.address.length * 9 + "px" }} value={deposits?.message?.address} className=" input input-bordered bg-white " readOnly />
-                <span className="bg-white" onClick={() => {
-                  navigator.clipboard.writeText(document.getElementById('copy').value); document.getElementById('htmlCah').innerHTML = `Copied`;
-                  setTimeout(function () {
-                    document.getElementById('htmlCah').innerHTML = `Copy`;
-                  }, 5000);
-                }}>
-                  <div id='htmlCah'>Copy</div>
-                </span>
-              </label>
             </div>
 
 
@@ -113,12 +103,12 @@ const Deposit = () => {
             <div>
               <h2 className="font-bold text-base md:text-xl  lg:text-xl">
                 <i className="fa-solid fa-clock"></i> Time left to pay :{" "}
-                <span className="text-sky-600">
+                <span className="text-green-600">
                   {" "}
                   <Countdown date={Date.now() + 3600000} renderer={renderer} />
                 </span>{" "}
               </h2>
-              <h4 className="my-3">Make sure to always cover the Gas Fee or your
+              <h4 className="my-3 text-gray-700">Make sure to always cover the Gas Fee or your
                 deposit will not be completed.</h4>
             </div>
           </div>

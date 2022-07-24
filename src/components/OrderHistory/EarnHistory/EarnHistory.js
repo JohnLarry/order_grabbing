@@ -58,12 +58,12 @@ const EarnHistory = () => {
     <div>
       <OrderHistory></OrderHistory>
 
-      <div className="container mx-auto max-w-[1080]">
-        <div className="flex justify-between  lg:mx-0 md:mx-0 mx-5">
+      <div className="container my-5 mx-auto max-w-[1080]">
+        <div className="flex justify-between  mx-3">
           <select
             id="dataLimit"
             onChange={(e) => setDataLimit(e.target.value)}
-            className="select select-secondary select-bordered w-[150px] max-w-xs"
+            className="mx-auto select select-info select-bordered w-full "
           >
             <option vlaue={7}>All</option>
             <option value={1} defaultValue selected>
@@ -77,9 +77,9 @@ const EarnHistory = () => {
           </select>
         </div>
 
-        <section className="  container my-10">
-          <div className="overflow-x-auto w-full rounded shadow-lg   ">
-            <table className="table table-compact w-full text-center font-bold mb-16">
+        <section className="container my-7 mx-auto">
+          <div className="overflow-x-auto w-11/12 rounded shadow-lg mx-auto  ">
+            <table className=" table table-compact w-11/12 text-center font-bold mb-16">
               <thead>
                 <tr>
                   <th>Id</th>

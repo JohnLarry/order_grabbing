@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { authkey } from "../Login/authkey";
+import Transiction from "./Transiction";
 
 const DepositeHistory = () => {
   const [dataLimit, setDataLimit] = useState();
@@ -56,28 +57,15 @@ const DepositeHistory = () => {
   }
 
   return (
-    <div className="container max-w-[1080px] mx-auto p-5">
-      <div className="bg-base-200 p-5 rounded-xl mb-5 flex items-center justify-between">
-        <Link to="/profile">
-          <IoIosArrowBack></IoIosArrowBack>
-        </Link>
-        <h1 className="text-xl font-bold text-center">Transaction</h1>
-      </div>
-      <div className="flex justify-between max-w-[600px] md:mx-auto">
-        <div className="flex flex-col items-center">
-          <Link to="/withdrawal-history">Withdrawal History </Link>
-          <div className="h-[2px] w-6 bg-primary"></div>
-        </div>
-        <div className="flex flex-col items-center">
-          <Link to="/deposit-history">Deposit History</Link>
-          <div className="h-[2px] w-6 bg-primary"></div>
-        </div>
-      </div>
-      <div className="flex justify-between my-10">
+    <div >
+   
+    <Transiction></Transiction>
+    <div className="container my-5 mx-auto max-w-[1080]">
+        <div className="flex justify-between  mx-3">
         <select
           id="dataLimit"
           onChange={(e) => setDataLimit(e.target.value)}
-          className="select select-secondary select-bordered w-[150px] max-w-xs"
+          className="mx-auto select select-info select-bordered w-full "
         >
           <option vlaue={100}>All</option>
           <option value={1} defaultValue selected>
@@ -91,14 +79,14 @@ const DepositeHistory = () => {
         </select>
       </div>
 
-      <div>
-        <div className="overflow-x-auto">
-          <table className="table table-compact w-full text-center">
+    
+      <section className="container my-7 mx-auto text-center">
+          <div className="overflow-x-auto w-11/12 rounded shadow-lg mx-auto  ">
+            <table className=" table table-compact w-11/12 text-center font-bold mb-16">
             <thead>
               <tr>
                 <th></th>
                 <th>Address</th>
-
                 <th>Amount</th>
                 <th>Status</th>
                 <th>Time</th>
@@ -134,7 +122,6 @@ const DepositeHistory = () => {
                         <></>
                       )}
                       {p?.payment_status == "confirmed" ? (
-                        //  || "sending" || "confirming"
                         <div className="flex font-bold ">
                           <span className="ml-2 rounded-lg badge badge-primary gap-2">
                             Being Proceed
@@ -171,15 +158,7 @@ const DepositeHistory = () => {
                       ) : (
                         <></>
                       )}
-                      {p?.payment_status == "" ? (
-                        <div className="flex font-bold ">
-                          <span className="ml-2 rounded-lg badge badge-secondary gap-2">
-                            Status
-                          </span>
-                        </div>
-                      ) : (
-                        <></>
-                      )}
+                   
                     </div>
                   </td>
                   <td>{p?.date}</td>
@@ -188,6 +167,7 @@ const DepositeHistory = () => {
             ))}
           </table>
         </div>
+      </section>
       </div>
     </div>
   );

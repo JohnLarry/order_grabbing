@@ -56,15 +56,17 @@ const GrabHistory = () => {
   return (
     <div>
       <OrderHistory></OrderHistory>
-      <div className="container mx-auto max-w-[1080] mb-24">
-        <div className="flex justify-between  lg:mx-0 md:mx-0 mx-5">
+      <div className="container mt-5 mx-auto max-w-[1080] mb-24">
+        
+
+        <div className="  flex justify-between  mx-3 ">
           <select
             id="dataLimit"
             onChange={(e) => setDataLimit(e.target.value)}
-            className="select select-secondary select-bordered w-[150px] max-w-xs"
+            className="mx-auto select select-info select-bordered w-full "
           >
 
-            <option value={1} defaultValue selected>
+            <option  value={1} defaultValue selected>
               50
             </option>
             <option value={2}>100</option>
@@ -75,17 +77,17 @@ const GrabHistory = () => {
             <option vlaue={7}>All</option>
           </select>
         </div>
-        <section className="  container my-10  ">
+        <section className=" mx-3    my-5  ">
           <div className="grid grid-cols-1 gap-5">
 
 
             {d?.map((p) => (
               <div
                 key={p?.id}
-                className="card mx-auto bg-base-200 shadow-xl w-full p-5 "
+                className="card mx-auto rounded-lg  bg-base-200 shadow-xl py-5 px-3 w-full "
               >
 
-                <div className="">
+                <div className="mx-3 ">
                   <div className="flex justify-between">
                     <small className=" text-gray-600">order number: {p?.number} </small>
                     {p?.status == "finished" ? (
