@@ -39,7 +39,7 @@ const Profile = () => {
   dashboardProfile.append("dashboard", "");
   dashboardProfile.append("auth", authkey);
   dashboardProfile.append("logged", localStorage.getItem("auth"));
-  
+
   var logoutUserData = new FormData();
   logoutUserData.append("logout", "");
   logoutUserData.append("auth", authkey);
@@ -108,15 +108,24 @@ const Profile = () => {
     <>
       <div className="container max-w-[1080px] mx-auto">
         <div className="w-full h-[150px] bg-gradient-to-r from-green-500 via-indigo-500 to-blue-600 ... relative rounded-b-[50%]">
-          <div className="w-[90%] mx-auto flex justify-between items-center pt-12 text-white">
+          <div className="w-[90%] mx-auto flex justify-center items-center pt-12 text-white">
+           
             <div className="flex gap-5 mb-5">
               <div className="avatar">
-                <div className="w-12 rounded-full ring ring-secondary ring-offset-white ring-offset-2">
-                  <img src={avater} alt="" />
+                <div className="w-16 rounded-full ">
+
+                  {
+
+                    Object.entries(dashboardMessagex).length === 0
+                      ? <img src={avater} alt="" />
+                      : <img src={`/files/badges/${dashboardMessagex.user[0].packid}.png`} alt="" />
+                  }
+
+
                 </div>
               </div>
               <div>
-                <h2 className="card-title">
+                <h2 className="card-title mt-1">
                   {" "}
                   {
                     //dashboardMessage.user[0].username
@@ -127,31 +136,31 @@ const Profile = () => {
                   }
                 </h2>
                 <p>
-                ID:{" "}
+                  ID:{" "}
                   {Object.entries(dashboardMessagex).length === 0
                     ? "user name"
                     : dashboardMessagex.user[0].invite}
                 </p>
               </div>
             </div>
-          
-          </div>     
+
+          </div>
         </div>
 
-        
+
 
 
         <div className="w-[90%] mx-auto bg-base-200 m-5 p-5 grid grid-cols-2 md:grid-cols-5 gap-5 rounded-lg">
-        <Link to="/team-report/agent" className="flex flex-col items-center">
+          <Link to="/team-report/agent" className="flex flex-col items-center">
             <img src={teamReport} alt="" />
             <h1>Team report</h1>
           </Link>
-          
+
           <Link to="/lucky-spin" className="flex flex-col items-center">
             <img className="w-10 h-6 rounded " src={wheelSpin} alt="" />
 
             <h1 className="">Wheel of Fortune</h1>
-          </Link> 
+          </Link>
           <Link to="/grab-history" className="flex flex-col items-center">
             <img src={history} alt="" />
             <h1>Grabs & Profits History</h1>
@@ -161,40 +170,40 @@ const Profile = () => {
             <h1>Profile</h1>
           </Link>
           <a target="_blank" rel="noopener noreferrer" href="https://support.farfetchedgrab.com/" >
-          <div className="flex flex-col items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-            </svg>
-            <h1>Live Support</h1>
-          </div>
+            <div className="flex flex-col items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+              </svg>
+              <h1>Live Support</h1>
+            </div>
           </a>
           <Link to="/invite-friends" className="flex flex-col items-center">
             <img src={inviteFriends} alt="" />
             <h1>Grow your team</h1>
           </Link>
-          
+
 
           <Link to="/summary" className="flex flex-col items-center">
             <img src={vip} alt="" />
             <h1>Membership</h1>
           </Link>
-       
+
           <Link to="/withdrawal-history" className="flex flex-col items-center">
             <img src={transection} alt="" />
             <h1>Transaction History</h1>
           </Link>
-        
+
           <div className="indicator m-auto">
-          <Link to="/message" className="flex flex-col items-center">
-            
-            <img src={message} alt="" />
-            <small className="indicator-item"><small>{dashboardMessagex.notify}</small></small>
-            <h1>Inbox</h1>
-          </Link>
+            <Link to="/message" className="flex flex-col items-center">
+
+              <img src={message} alt="" />
+              <small className="indicator-item"><small>{dashboardMessagex.notify}</small></small>
+              <h1>Inbox</h1>
+            </Link>
           </div>
-    
-         
-        
+
+
+
 
           <div
             className="flex flex-col items-center cursor-pointer"
@@ -217,32 +226,32 @@ const Profile = () => {
             <h1>Logout</h1>
           </div>
         </div>
-           
+
         <div className="w-[90%] mb-24 card mx-auto gap-5 rounded-lg bg-base-200 shadow-xl w-full">
           <div className="card-body">
             <div className="flex justify-between">
               <h1 className="text-sm md:text-xl">Total Account Balance</h1>
               <h1 className="flex text-sm md:text-xl">
-                {format(dashboardMessagex.asset)}<img src={usdt} width="22" className="m-1 pt-[1px]"/>
+                {format(dashboardMessagex.asset)}<img src={usdt} width="22" className="m-1 pt-[1px]" />
               </h1>
             </div>
 
             <div className="flex justify-between">
               <h1 className="text-sm md:text-xl">Available Grab Balance</h1>
               <h1 className="flex text-sm md:text-xl">
-                {format(dashboardMessagex.grab_balance)}<img src={usdt} width="22" className="m-1 pt-[1px]"/>
+                {format(dashboardMessagex.grab_balance)}<img src={usdt} width="22" className="m-1 pt-[1px]" />
               </h1>
             </div>
             <div className="flex justify-between">
               <h1 className="text-sm md:text-xl">Today's Grab Profit</h1>
               <h1 className="flex text-sm md:text-xl">
-                {format(dashboardMessagex.today_profit)}<img src={usdt} width="22" className="m-1 pt-[1px]"/>
+                {format(dashboardMessagex.today_profit)}<img src={usdt} width="22" className="m-1 pt-[1px]" />
               </h1>
             </div>
             <div className="flex justify-between">
               <h1 className="text-sm md:text-xl">Total Grab Profit</h1>
               <h1 className="flex text-sm md:text-xl">
-                {format(dashboardMessagex.totalgrab)}<img src={usdt} width="22" className="m-1 pt-[1px]"/>
+                {format(dashboardMessagex.totalgrab)}<img src={usdt} width="22" className="m-1 pt-[1px]" />
               </h1>
             </div>
             <div className="flex justify-between  items-center">
@@ -252,9 +261,9 @@ const Profile = () => {
 
               </div>
               <div className="flex">
-                
+
                 <h1 className="flex text-sm md:text-xl">
-                  {format(dashboardMessagex.locked_asset)}<img src={usdt} width="22" className="m-1 pt-[1px]"/>
+                  {format(dashboardMessagex.locked_asset)}<img src={usdt} width="22" className="m-1 pt-[1px]" />
                 </h1>
               </div>
 
@@ -262,20 +271,20 @@ const Profile = () => {
             <div className="flex justify-between">
               <h1 className="text-sm md:text-xl">Lifetime Staked Profit </h1>
               <h1 className="flex text-sm md:text-xl">
-                {format(dashboardMessagex.stakeProfit)}<img src={usdt} width="22" className="m-1 pt-[1px]"/>
+                {format(dashboardMessagex.stakeProfit)}<img src={usdt} width="22" className="m-1 pt-[1px]" />
               </h1>
             </div>
-          
+
             <div className="flex justify-between">
               <h1 className="text-sm md:text-xl">Lifetime Team Commission</h1>
               <h1 className="flex text-sm md:text-xl">
-                {format(dashboardMessagex.promotion_bonus)}<img src={usdt} width="22" className="m-1 pt-[1px]"/>
+                {format(dashboardMessagex.promotion_bonus)}<img src={usdt} width="22" className="m-1 pt-[1px]" />
               </h1>
             </div>
             <div className="flex justify-between">
               <h1 className="text-sm md:text-xl">Lifetime Account Profit </h1>
               <h1 className="flex text-sm md:text-xl">
-                {format(dashboardMessagex.stakePlusGrab)} <img src={usdt} width="22" className="m-1 pt-[1px]"/>
+                {format(dashboardMessagex.stakePlusGrab)} <img src={usdt} width="22" className="m-1 pt-[1px]" />
               </h1>
             </div>
           </div>

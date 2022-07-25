@@ -278,7 +278,7 @@ const LockHistory = () => {
       );
     }
   };
-  
+
 
 
 
@@ -304,7 +304,7 @@ const LockHistory = () => {
           </svg>{" "}
           Back
         </Link>
-        <h1 className="text-xl font-bold text-center">Stacking </h1>
+        <h1 className="text-xl font-bold text-center">Staking </h1>
       </div>
 
       <div className="my-5">
@@ -436,7 +436,7 @@ const LockHistory = () => {
               : <></>
             }
 
-     
+
 
 
             <input type="checkbox" id="my-modal-6" class="modal-toggle" />
@@ -470,8 +470,8 @@ const LockHistory = () => {
           <thead>
             <tr>
               <th className="text-xs md:text-sm"></th>
-              <th className="text-xs md:text-sm">Stacked Amount</th>
-              <th className="text-xs md:text-sm">Days Staked</th>
+              <th className="text-xs md:text-sm">Staked Amount</th>
+              <th className="text-xs md:text-sm"> Staked Days</th>
 
               <th className="text-xs md:text-sm">Total Profit</th>
               <th className="text-xs md:text-sm">Membership Members</th>
@@ -482,39 +482,39 @@ const LockHistory = () => {
 
           <tbody>
             {Object.entries(dashboardMessage).length > 0
-              ? dashboardMessage.locked_history.map((item, index) => (
-                <tr>
-                  <td>{count++}</td>
-                  <td>{item.amount}</td>
-                  <td>{item.counter}</td>
-                  <td> {totalProfit(item.amount, item.counter, "comission")} </td>
+              ? dashboardMessage.locked_history != null ? dashboardMessage.locked_history.map((item, index) => (
+            <tr>
+              <td>{count++}</td>
+              <td>{item.amount}</td>
+              <td>{item.counter}</td>
+              <td> {totalProfit(item.amount, item.counter, "comission")} </td>
 
-                  <td> {totalProfit(item.amount, item.counter, "reduceRefer")} </td>
+              <td> {totalProfit(item.amount, item.counter, "reduceRefer")} </td>
 
 
-                  <td><span >
+              <td><span >
 
-                    <Countdown date={Date.now() + parseInt(item.time)} renderer={renderer} />
-                  </span>{" "} </td>
-                  <td>
-                    {item?.status == "finished" ? (
-                      <span className=" font-bold ml-2 rounded-lg badge badge-success gap-2">
-                        Complete
-                      </span>
-                    ) : (
-                      <></>
-                    )}
-                    {item?.status == "pending" ? (
-                      <span className="font-bold  ml-2 rounded-lg badge badge-primary gap-2">
-                        Acitve
-                      </span>
-                    ) : (
-                      <></>
-                    )}
-                  </td>
-                </tr>
-              ))
-              : "Loading"}
+                <Countdown date={Date.now() + parseInt(item.time)} renderer={renderer} />
+              </span>{" "} </td>
+              <td>
+                {item?.status == "finished" ? (
+                  <span className=" font-bold ml-2 rounded-lg badge badge-success gap-2">
+                    Complete
+                  </span>
+                ) : (
+                  <></>
+                )}
+                {item?.status == "pending" ? (
+                  <span className="font-bold  ml-2 rounded-lg badge badge-primary gap-2">
+                    Acitve
+                  </span>
+                ) : (
+                  <></>
+                )}
+              </td>
+            </tr>
+            ))
+             : "No Stake available" : "Loading"}
           </tbody>
         </table>
       </div>
@@ -546,10 +546,10 @@ const LockHistory = () => {
             completed.
           </p>
           <p className="text-xs md:text-sm mt-2">
-          - You can have only 2 active staking instances at the same 
-time.
+            - You can have only 2 active staking instances at the same
+            time.
           </p>
-       
+
         </div>
       </div>
     </div>

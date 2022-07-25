@@ -204,17 +204,17 @@ const PersonalInfo = () => {
   }
 
   const mask = (cardnumber) => {
-if(cardnumber.length < 10){
-return cardnumber;
-}else{
-   var first4 = cardnumber.substring(0, 4);
-    var last5 = cardnumber.substring(cardnumber.length - 5);
-  return first4 + "****" + last5;
-}
-   
+    if (cardnumber.length < 10) {
+      return cardnumber;
+    } else {
+      var first4 = cardnumber.substring(0, 4);
+      var last5 = cardnumber.substring(cardnumber.length - 5);
+      return first4 + "****" + last5;
+    }
 
-  
-    
+
+
+
   }
 
   return (
@@ -235,11 +235,16 @@ return cardnumber;
             <div className="card-body">
               <div className="flex gap-5 mb-5">
                 <div className="avatar">
-                  <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <img src={avater} alt="" />
+                  <div className="w-16 rounded-full ">
+                    {
+
+                      Object.entries(user[0]).length === 0
+                        ? <img src={avater} alt="" />
+                        : <img src={`/files/badges/${user[0].packid}.png`} alt="" />
+                    }
                   </div>
                 </div>
-                <div>
+                <div className=" mt-4">
                   <h2 className="card-title">{user[0].username}</h2>
 
                 </div>
@@ -436,7 +441,7 @@ return cardnumber;
               <div className="flex justify-between">
                 <div>
                   <h1 className="">Change USDT Address</h1>
-                  <span> {mask(user[0].usdt_address) }</span>
+                  <span> {mask(user[0].usdt_address)}</span>
                 </div>
                 {/* [0].usdt_address */}
                 <label

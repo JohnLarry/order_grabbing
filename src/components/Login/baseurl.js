@@ -1,0 +1,1 @@
+export const apiUrl = 'https://mining-nfts.com/api/';

@@ -105,6 +105,7 @@ export const userSlice = createSlice({
         ableToWork: "0",
         26: "0",
         usdt_address: "",
+        packid: "",
       },
     ],
   },

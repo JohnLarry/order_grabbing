@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
+
 import { FaCheckCircle } from "react-icons/fa";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import usdt from "../../images/usdt.png";
@@ -39,6 +40,8 @@ const Summary = () => {
 
 
 
+
+
   return (
     <div className="container max-w-[1080px] mx-auto p-5">
       <div className="bg-base-200 px-4 py-2 rounded-xl   flex items-center justify-between">
@@ -65,10 +68,14 @@ const Summary = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
         {summary.map((card) =>
           card.id < user[0].packid ? (
-            <div className="card bg-base-200 shadow-xl ">
-              <div className="card-body">
+            <div className="card   shadow-xl "  style={{ backgroundImage: `url(/files/card/${card.packName}.png)`, backgroundRepeat: "no-repeat",
+            backgroundSize: "cover" }
+            } >
+              <div className="card-body text-slate-900 font-bold mb-4">
+                <img src="/files/card/Silver.png" alt="" />
                 <div className="flex justify-between items-center">
                   <h1 className="">{card.packName} </h1>
+
 
                   <div className=" bg-base-300 p-2 flex items-center gap-3">
                     <span className="flex"> Completed </span>
@@ -168,8 +175,11 @@ const Summary = () => {
                 </div>
               </div>
             </div>
-          ) : card.id == user[0].packid ? <div className="card bg-base-200 shadow-xl ">
-            <div className="card-body">
+          ) : card.id == user[0].packid ? <div className="card  shadow-xl "  style={{ backgroundImage: `url(/files/card/${card.packName}.png)`, backgroundRepeat: "no-repeat",
+          backgroundSize: "cover" }
+          }>
+            <div className="card-body text-slate-900 font-bold mb-4">
+             
               <div className="flex justify-between items-center">
                 <h1 className="">{card.packName} </h1>
 
@@ -271,8 +281,12 @@ const Summary = () => {
               </div>
             </div>
           </div> : (
-            <div className="card bg-base-200 shadow-xl">
-              <div className="card-body">
+            <div className="card  shadow-xl"
+              style={{ backgroundImage: `url(/files/card/${card.packName}.png)`, backgroundRepeat: "no-repeat",
+              backgroundSize: "cover" }
+              }>
+              <div className="card-body text-slate-900 font-bold mb-4">
+
                 <div className="flex justify-between">
                   <h1>{card.packName}</h1>
                   <div className="bg-base-300  p-2 flex items-center gap-3">

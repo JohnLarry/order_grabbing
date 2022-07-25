@@ -287,8 +287,8 @@ const TeamReport = () => {
                       </label>
 
                       <p className="text-xs md:text-sm mt-10">
-                        An active member is a user who deposited at least 100
-                        <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" />
+                      A active member is a user who has at least 100  <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" /> in his Grab balance (Staked balance does not count).
+                        
                       </p>
                     </div>
                   </div>
@@ -321,8 +321,7 @@ const TeamReport = () => {
                       </label>
 
                       <p className="text-xs md:text-sm mt-10">
-                        An inactive member is a user who did not make any
-                        deposits or deposited less than 100 <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" />
+                      An inactive member is a user who has under 100  <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" /> in his Grab balance.
                       </p>
                     </div>
                   </div>
