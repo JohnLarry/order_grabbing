@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { FaCheckCircle } from "react-icons/fa";
 import { AiFillQuestionCircle } from "react-icons/ai";
-
+import usdt from "../../images/usdt.png";
 import { useSelector, useDispatch } from "react-redux";
 import { authkey } from "../Login/authkey";
 import { updateSummary } from "../../store/slice";
@@ -107,14 +107,14 @@ const Summary = () => {
                     </div>
                   </h1>
                   <h1 className="text-xs md:text-sm ">
-                    {card.commission_percent}
+                    {card.commission_percent} %
                   </h1>
                 </div>
                 <div className="flex justify-between items-center">
                   <h1 className="text-xs md:text-sm ">
                     Minimum Required Grab Balance:{" "}
                   </h1>
-                  <h1 className="text-xs md:text-sm ">{card.balanceRequire}</h1>
+                  <h1 className="text-xs md:text-sm ">{card.balanceRequire} <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" /></h1>
                 </div>
                 <div className="flex justify-between items-center">
                   <h1 className="text-xs md:text-sm ">
@@ -160,7 +160,7 @@ const Summary = () => {
                   <h1 className="text-xs md:text-sm ">
                     Commission per Grab Order:
                   </h1>
-                  <h1 className="text-xs md:text-sm ">{format(card.commission_percent / card.grab_order)}</h1>
+                  <h1 className="text-xs md:text-sm ">{format(card.commission_percent / card.grab_order)} %</h1>
                 </div>
                 <div className="flex justify-between items-center">
                   <h1 className="text-xs md:text-sm ">Staking Feature:</h1>
@@ -210,14 +210,14 @@ const Summary = () => {
                   </div>
                 </h1>
                 <h1 className="text-xs md:text-sm ">
-                  {card.commission_percent}
+                  {card.commission_percent} %
                 </h1>
               </div>
               <div className="flex justify-between items-center">
                 <h1 className="text-xs md:text-sm ">
                   Minimum Required Grab Balance:{" "}
                 </h1>
-                <h1 className="text-xs md:text-sm ">{card.balanceRequire}</h1>
+                <h1 className="text-xs md:text-sm ">{card.balanceRequire} <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" /></h1>
               </div>
               <div className="flex justify-between items-center">
                 <h1 className="text-xs md:text-sm ">
@@ -263,7 +263,7 @@ const Summary = () => {
                 <h1 className="text-xs md:text-sm ">
                   Commission per Grab Order:
                 </h1>
-                <h1 className="text-xs md:text-sm ">{format(card.commission_percent / card.grab_order)}</h1>
+                <h1 className="text-xs md:text-sm ">{format(card.commission_percent / card.grab_order)} %</h1>
               </div>
               <div className="flex justify-between items-center">
                 <h1 className="text-xs md:text-sm ">Staking Feature:</h1>
@@ -320,14 +320,14 @@ const Summary = () => {
                     </div>
                   </h1>
                   <h1 className="text-xs md:text-sm ">
-                    {card.commission_percent}
+                    {card.commission_percent} %
                   </h1>
                 </div>
                 <div className="flex justify-between items-center">
                   <h1 className="text-xs md:text-sm ">
                     Minimum Required Grab Balance:{" "}
                   </h1>
-                  <h1 className="text-xs md:text-sm ">{card.balanceRequire}</h1>
+                  <h1 className="text-xs md:text-sm ">{card.balanceRequire}  <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" /></h1>
                 </div>
                 <div className="flex justify-between items-center">
                   <h1 className="text-xs md:text-sm ">
@@ -373,7 +373,7 @@ const Summary = () => {
                   <h1 className="text-xs md:text-sm ">
                     Commission per Grab Order:
                   </h1>
-                  <h1 className="text-xs md:text-sm ">{format(card.commission_percent / card.grab_order)}</h1>
+                  <h1 className="text-xs md:text-sm ">{format(card.commission_percent / card.grab_order)} %</h1>
                 </div>
                 <div className="flex justify-between items-center">
                   <h1 className="text-xs md:text-sm ">Staking Feature:</h1>

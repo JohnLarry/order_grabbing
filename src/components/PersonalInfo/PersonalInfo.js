@@ -3,9 +3,9 @@ import avater from "../../images/avater.png";
 import { useSelector, useDispatch } from "react-redux";
 import { TbEdit } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
-import { IoIosArrowBack } from "react-icons/io";
 import { authkey } from "../Login/authkey";
 import { useForm } from "react-hook-form";
+import { updateUser } from "../../store/slice";
 import { toast, ToastContainer } from "react-toastify";
 import { updateDashboardMessage } from "../../store/slice";
 
@@ -31,6 +31,9 @@ const PersonalInfo = () => {
       .then((data) => {
         if (data.status == 200) {
           dispatch(updateDashboardMessage(data.message));
+
+          dispatch(updateUser(data.message.user));
+
         }
       });
   }, []);
@@ -48,6 +51,8 @@ const PersonalInfo = () => {
       .then((data) => {
         if (data.status == 200) {
           setVerify(data);
+        } else if (data.status == 100) {
+          toast.error(data.message);
         }
       });
   };
@@ -56,9 +61,20 @@ const PersonalInfo = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+
   } = useForm();
+
+  const {
+    register: register2,
+    formState: { errors: errors2 },
+    handleSubmit: handleSubmit2,
+
+  } = useForm();
+
+
+
   const onSubmit = async (data) => {
+
     const verifyMessage = data.verification;
     const loginPass = data.newLoginPass;
 
@@ -78,6 +94,9 @@ const PersonalInfo = () => {
         .then((data) => {
 
           if (data.status == 200) {
+            //close modal
+            document.getElementById("closeloginpass").click();
+            document.getElementById("closeloginpass1").click();
 
             toast.success(data.message);
 
@@ -88,28 +107,34 @@ const PersonalInfo = () => {
           }
         });
     } else {
-
+      toast.error("Invalid verification code");
     }
-  };
-  const handleWithdrawVerify = (e) => {
-    e.preventDefault();
-    const verifyWithdraw = verifyRef.current.value;
-    const newWithdrawPass = withdrawRef.current.value;
-    if (verifyWithdraw == verify?.message?.code) {
-      var withdrawPassChange = new FormData();
-      withdrawPassChange.append("auth", authkey);
-      withdrawPassChange.append("logged", localStorage.getItem("auth"));
-      withdrawPassChange.append("profile", "");
-      withdrawPassChange.append("set_code", "");
-      withdrawPassChange.append("code", newWithdrawPass);
 
+  };
+
+  const onSubmit1 = async (data) => {
+    const verifyMessage = data.newWithdrwcode;
+    const loginPass = data.newWithdrwPass;
+
+    if (verifyMessage == verify?.message?.code) {
+      var loginPassChange = new FormData();
+      loginPassChange.append("auth", authkey);
+      loginPassChange.append("logged", localStorage.getItem("auth"));
+      loginPassChange.append("profile", "");
+      loginPassChange.append("set_code", "");
+      loginPassChange.append("code", loginPass);
+      //  
       fetch("https://mining-nfts.com/api/", {
         method: "POST",
-        body: withdrawPassChange,
+        body: loginPassChange,
       })
         .then((res) => res.json())
         .then((data) => {
+
           if (data.status == 200) {
+            //close modal
+            document.getElementById("closeloginpass2").click();
+            document.getElementById("closeloginpass3").click();
 
             toast.success(data.message);
 
@@ -120,14 +145,16 @@ const PersonalInfo = () => {
           }
         });
     } else {
-
+      toast.error("Invalid verification code");
     }
+
   };
+
   const handleAddress = (e) => {
-    
+
     const addressChange = addressRef.current.value;
     const withdrawalPass = withdrawalRef.current.value;
-    console.log(user[0]?.secret_key);
+
 
     if (withdrawalPass == user[0]?.secret_key) {
       var changeAddress = new FormData();
@@ -155,13 +182,13 @@ const PersonalInfo = () => {
             navigate("/login");
           }
         });
-    }else{
+    } else {
       toast.error("Invalid Withdrawal Password");
     }
   };
 
   const validateUsdtAddress = (e) => {
-   e.preventDefault();
+    e.preventDefault();
     var usdtaddres = document.getElementById('usdtaddres').value;
     if (usdtaddres == "") {
       toast.error('Address can not be empty');
@@ -174,6 +201,20 @@ const PersonalInfo = () => {
       handleAddress(e);
     }
 
+  }
+
+  const mask = (cardnumber) => {
+if(cardnumber.length < 10){
+return cardnumber;
+}else{
+   var first4 = cardnumber.substring(0, 4);
+    var last5 = cardnumber.substring(cardnumber.length - 5);
+  return first4 + "****" + last5;
+}
+   
+
+  
+    
   }
 
   return (
@@ -236,6 +277,7 @@ const PersonalInfo = () => {
                 <div className="modal p-5">
                   <div className="modal-box relative">
                     <label
+                      id="closeloginpass1"
                       htmlFor="my-modal-3"
                       className="btn btn-sm btn-circle absolute right-2 top-2 "
                     >
@@ -264,6 +306,7 @@ const PersonalInfo = () => {
               <label for="my-modal-4" className="modal cursor-pointer">
                 <label className="modal-box relative" for="">
                   <label
+                    id="closeloginpass"
                     htmlFor="my-modal-4"
                     className="btn btn-sm btn-circle absolute right-2 top-2"
                   >
@@ -275,7 +318,7 @@ const PersonalInfo = () => {
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control">
                       <input
-                        type="number"
+                        type="text"
                         placeholder="New Login Password"
                         className="input input-bordered mb-5"
                         {...register("newLoginPass", {
@@ -316,6 +359,7 @@ const PersonalInfo = () => {
                 <div className="modal">
                   <div className="modal-box">
                     <label
+                      id="closeloginpass2"
                       htmlFor="my-modal"
                       className="btn btn-sm btn-circle absolute right-2 top-2"
                     >
@@ -344,6 +388,7 @@ const PersonalInfo = () => {
               <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                   <label
+                    id="closeloginpass3"
                     htmlFor="my-modal-6"
                     className="btn btn-sm btn-circle absolute right-2 top-2"
                   >
@@ -352,24 +397,30 @@ const PersonalInfo = () => {
                   <h3 className="text-2xl text-center font-bold mb-5 mt-5 pt-5">
                     Withdrawal Verification Code
                   </h3>
-                  <form onSubmit={handleWithdrawVerify}>
+                  <form onSubmit={handleSubmit2(onSubmit1)}>
                     <div>
                       <input
-                        ref={withdrawRef}
+
                         type="number"
                         placeholder="New Withdrawal Password"
                         className="input input-bordered w-full mb-5"
-                        required
+                        {...register2("newWithdrwPass", {
+                          required: true,
+                        })}
                       />
+                      {errors2.newWithdrwPass && <p>Withdrawal Password is required</p>}
                     </div>
                     <div>
                       <input
-                        ref={verifyRef}
+
                         type="number"
                         placeholder="Verification Code"
                         className="input input-bordered w-full"
-                        required
+                        {...register2("newWithdrwcode", {
+                          required: true,
+                        })}
                       />
+                      {errors2.newWithdrwcode && <p>Verification code is required</p>}
                     </div>
                     <div className="form-control mt-6">
                       <input
@@ -383,7 +434,11 @@ const PersonalInfo = () => {
               </div>
 
               <div className="flex justify-between">
-                <h1>Change USDT Address</h1>
+                <div>
+                  <h1 className="">Change USDT Address</h1>
+                  <span> {mask(user[0].usdt_address) }</span>
+                </div>
+                {/* [0].usdt_address */}
                 <label
 
                   htmlFor="my-modal-7"
@@ -414,7 +469,7 @@ const PersonalInfo = () => {
                           type="text"
                           placeholder="Change your USDT address"
                           className="input input-bordered w-full mb-5"
-                          required
+
                         />
                       </div>
                       <div>
@@ -423,7 +478,7 @@ const PersonalInfo = () => {
                           type="number"
                           placeholder="Withdrawal password"
                           className="input input-bordered w-full "
-                          required
+
                         />
                       </div>
                       <div className="form-control mt-6">
@@ -437,6 +492,7 @@ const PersonalInfo = () => {
                     </form>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>

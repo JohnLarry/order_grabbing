@@ -107,7 +107,7 @@ const Profile = () => {
   return (
     <>
       <div className="container max-w-[1080px] mx-auto">
-        <div className="w-full h-[150px] bg-primary relative rounded-b-[50%]">
+        <div className="w-full h-[150px] bg-gradient-to-r from-green-500 via-indigo-500 to-blue-600 ... relative rounded-b-[50%]">
           <div className="w-[90%] mx-auto flex justify-between items-center pt-12 text-white">
             <div className="flex gap-5 mb-5">
               <div className="avatar">
@@ -135,17 +135,7 @@ const Profile = () => {
               </div>
             </div>
           
-          </div>
-          
-      
-     
-      
-        <div>
-   
-        </div>
-        <div>
-  
-        </div>
+          </div>     
         </div>
 
         
@@ -164,7 +154,7 @@ const Profile = () => {
           </Link> 
           <Link to="/grab-history" className="flex flex-col items-center">
             <img src={history} alt="" />
-            <h1>Grab & Earn History</h1>
+            <h1>Grabs & Profits History</h1>
           </Link>
           <Link to="/personal-info" className="flex flex-col items-center">
             <img src={info} alt="" />

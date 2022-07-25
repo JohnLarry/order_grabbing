@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateDashboardMessage } from "../../store/slice";
 import { authkey } from "../Login/authkey";
+import { toast } from "react-toastify";
 const InviteFriends = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const InviteFriends = () => {
 
     <div className="bg-slate-900 ">
       <div className="container max-w-[1080px] mx-auto py-5">
-        
+
 
         <div className="bg-base-200 px-4 py-2 rounded-xl my-5 mx-3 flex items-center justify-between">
           <Link to="/" className="btn btn-base-200 rounded-full px-2">
@@ -63,12 +64,14 @@ const InviteFriends = () => {
           </p>
           <button
             className="btn btn-primary text-white font-bold rounded-xl"
-            onClick={navigator.clipboard.writeText(
-              Object.entries(dashboardMessagex).length === 0
-                ? "user name"
-                : "https://farfetchedgrab.com/register/" +
-                dashboardMessagex.user[0].invite
-            )}
+            onClick={
+              navigator.clipboard.writeText(
+                Object.entries(dashboardMessagex).length === 0
+                  ? "user name"
+                  : "https://farfetchedgrab.com/register/" +
+                  dashboardMessagex.user[0].invite
+              )
+            }
           >
             Referral Link
           </button>

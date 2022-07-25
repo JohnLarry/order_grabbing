@@ -104,6 +104,7 @@ export const userSlice = createSlice({
         25: "0",
         ableToWork: "0",
         26: "0",
+        usdt_address: "",
       },
     ],
   },

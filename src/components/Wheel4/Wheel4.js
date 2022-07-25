@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import swal from 'sweetalert';
 import { authkey } from "../Login/authkey";
 import './Wheel4.css'
-import { IoIosArrowBack } from "react-icons/io";
+
 import { AiFillQuestionCircle } from 'react-icons/ai';
 
 const Wheel4 = () => {
@@ -14,11 +14,12 @@ const Wheel4 = () => {
         { option: "0" },
         { option: "5" },
         { option: "10" },
-        { option: "0" },
+      
         { option: "15" },
         { option: "20" },
-        { option: "30" },
         { option: "0" },
+        { option: "30" },
+        
         { option: "50" },
         { option: "80" },
         { option: "90" },

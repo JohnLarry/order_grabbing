@@ -263,7 +263,7 @@ const TeamReport = () => {
               <div className="flex justify-between items-center">
                 <div className="flex items-center">
                   <h1 className="text-xs md:text-sm">
-                    Number of inactive members{" "}
+                    Number of active members{" "}
                   </h1>
                   
                   <label
@@ -287,8 +287,8 @@ const TeamReport = () => {
                       </label>
 
                       <p className="text-xs md:text-sm mt-10">
-                        "An active member is a user who deposited at least 100
-                        USDT ICON"
+                        An active member is a user who deposited at least 100
+                        <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" />
                       </p>
                     </div>
                   </div>
@@ -322,7 +322,7 @@ const TeamReport = () => {
 
                       <p className="text-xs md:text-sm mt-10">
                         An inactive member is a user who did not make any
-                        deposits or deposited less than 100 USDT ICON
+                        deposits or deposited less than 100 <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" />
                       </p>
                     </div>
                   </div>
