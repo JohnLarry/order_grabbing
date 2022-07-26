@@ -4,7 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import swal from 'sweetalert';
 import { authkey } from "../Login/authkey";
+import { apiUrl } from "../Login/baseurl";
 import './Wheel4.css'
+
 
 import { AiFillQuestionCircle } from 'react-icons/ai';
 
@@ -42,7 +44,7 @@ const Wheel4 = () => {
     dashboard.append("auth", authkey);
     dashboard.append("logged", localStorage.getItem("auth"));
     useEffect(() => {
-      fetch("https://mining-nfts.com/api/", {
+      fetch(apiUrl, {
         method: "POST",
         body: dashboard,
       })
@@ -64,7 +66,7 @@ const Wheel4 = () => {
         history.append("spinner", "");
         history.append("auth", authkey);
         history.append("logged", localStorage.getItem('auth'));
-        fetch("https://mining-nfts.com/api/", {
+        fetch(apiUrl, {
             method: "POST",
             body: history,
         })
@@ -85,7 +87,7 @@ const Wheel4 = () => {
         runSpinData.append("spinner", "");
         runSpinData.append("auth", authkey);
         runSpinData.append("logged", localStorage.getItem('auth'));
-        fetch("https://mining-nfts.com/api/", {
+        fetch(apiUrl, {
             method: "POST",
             body: runSpinData,
         })
@@ -106,7 +108,7 @@ const Wheel4 = () => {
                             eewrER.append("winAmount", newPrize);
                             eewrER.append("auth", authkey);
                             eewrER.append("logged", localStorage.getItem('auth'));
-                            fetch("https://mining-nfts.com/api/", {
+                            fetch(apiUrl, {
                                 method: "POST",
                                 body: eewrER,
                             })
@@ -195,7 +197,7 @@ const Wheel4 = () => {
                     {winDataT.spinLeft <= 0 ? <span className="font-bold lg:text-xl pt-5 pb-16 text-blue-800">0</span>
 
                         :
-                        <span className="font-bold lg:text-xl pt-5 pb-16 text-blue-800">1  {winDataT.spinLeft} </span>
+                        <span className="font-bold lg:text-xl pt-5 pb-16 text-blue-800"> {winDataT.spinLeft} </span>
 
                     }
                     <span>  <label

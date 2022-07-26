@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { authkey } from "../Login/authkey";
 import { updateSummary } from "../../store/slice";
 import { updateUser } from "../../store/slice";
+import { apiUrl } from "../Login/baseurl";
 
 const Summary = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const Summary = () => {
   dashboard.append("auth", authkey);
   dashboard.append("logged", localStorage.getItem("auth"));
   useEffect(() => {
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: dashboard,
     })

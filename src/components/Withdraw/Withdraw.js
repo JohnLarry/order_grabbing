@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { authkey } from "../Login/authkey";
 import usdt from "../../images/usdt.png";
+import { apiUrl } from "../Login/baseurl";
 
 const Withdraw = () => {
   let withDrawData = {};
@@ -27,7 +28,7 @@ const Withdraw = () => {
   withdraw.append("auth", authkey);
   withdraw.append("logged", localStorage.getItem("auth"));
 
-  fetch("https://mining-nfts.com/api/", {
+  fetch(apiUrl, {
     method: "POST",
     body: withdraw,
   })
@@ -99,7 +100,7 @@ const Withdraw = () => {
       withdrawSubmit.append("auth", authkey);
       withdrawSubmit.append("logged", localStorage.getItem("auth"));
 
-      fetch("https://mining-nfts.com/api/", {
+      fetch(apiUrl, {
         method: "POST",
         body: withdrawSubmit,
       })

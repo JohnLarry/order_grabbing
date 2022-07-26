@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { authkey } from "../../Login/authkey";
+import { apiUrl } from "../../Login/baseurl";
 import OrderHistory from "../OrderHistory";
 
 const EarnHistory = () => {
@@ -15,7 +16,7 @@ const EarnHistory = () => {
     history.append("auth", authkey);
     history.append("limit", 500);
     history.append("logged", localStorage.getItem("auth"));
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: history,
     })

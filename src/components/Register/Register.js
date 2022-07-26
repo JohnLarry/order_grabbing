@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { authkey } from "../Login/authkey";
 import { toast } from "react-toastify";
+import { apiUrl } from "../Login/baseurl";
 const Register = () => {
   const { invitecode } = useParams();
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ const Register = () => {
     registerNewUser.append("auth", authkey);
     registerNewUser.append("register", "");
     setIsLoading(true);
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: registerNewUser,
     })
@@ -49,7 +50,7 @@ const Register = () => {
           login.append("auth", authkey);
           login.append("login", "1");
 
-          fetch("https://mining-nfts.com/api/", {
+          fetch(apiUrl, {
             method: "POST",
             body: login,
           })

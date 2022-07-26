@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { updateUser } from "../../store/slice";
 import { toast, ToastContainer } from "react-toastify";
 import { updateDashboardMessage } from "../../store/slice";
+import { apiUrl } from "../Login/baseurl";
 
 const PersonalInfo = () => {
   const user = useSelector((state) => state.user.data);
@@ -23,7 +24,7 @@ const PersonalInfo = () => {
   dashboard.append("auth", authkey);
   dashboard.append("logged", localStorage.getItem("auth"));
   useEffect(() => {
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: dashboard,
     })
@@ -31,7 +32,6 @@ const PersonalInfo = () => {
       .then((data) => {
         if (data.status == 200) {
           dispatch(updateDashboardMessage(data.message));
-
           dispatch(updateUser(data.message.user));
 
         }
@@ -43,7 +43,7 @@ const PersonalInfo = () => {
     verifyCode.append("logged", localStorage.getItem("auth"));
     verifyCode.append("send_otp", "");
 
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: verifyCode,
     })
@@ -86,7 +86,7 @@ const PersonalInfo = () => {
       loginPassChange.append("set_login", "");
       loginPassChange.append("login", loginPass);
       //  
-      fetch("https://mining-nfts.com/api/", {
+      fetch(apiUrl, {
         method: "POST",
         body: loginPassChange,
       })
@@ -124,7 +124,7 @@ const PersonalInfo = () => {
       loginPassChange.append("set_code", "");
       loginPassChange.append("code", loginPass);
       //  
-      fetch("https://mining-nfts.com/api/", {
+      fetch(apiUrl, {
         method: "POST",
         body: loginPassChange,
       })
@@ -164,7 +164,7 @@ const PersonalInfo = () => {
       changeAddress.append("set_usdt", "");
       changeAddress.append("address", addressChange);
 
-      fetch("https://mining-nfts.com/api/", {
+      fetch(apiUrl, {
         method: "POST",
         body: changeAddress,
       })
@@ -212,9 +212,6 @@ const PersonalInfo = () => {
       return first4 + "****" + last5;
     }
 
-
-
-
   }
 
   return (
@@ -238,26 +235,47 @@ const PersonalInfo = () => {
                   <div className="w-16 rounded-full ">
                     {
 
-                      Object.entries(user[0]).length === 0
+                      Object.entries(user[0]).length == 0
                         ? <img src={avater} alt="" />
                         : <img src={`/files/badges/${user[0].packid}.png`} alt="" />
                     }
                   </div>
                 </div>
                 <div className=" mt-4">
-                  <h2 className="card-title">{user[0].username}</h2>
+                  <h2 className="card-title">
+                    {
+
+                      Object.entries(user[0]).length == 0
+                        ? "Loading...."
+                        : user[0].username
+                    }
+
+                  </h2>
 
                 </div>
               </div>
 
               <div className="flex justify-between">
                 <h1>Real name</h1>
-                <h1>{user[0].name}</h1>
+                <h1>
+                  {
+
+                    Object.entries(user[0]).length == 0
+                      ? "Loading...."
+                      : user[0].name
+                  }
+                </h1>
               </div>
               <hr />
               <div className="flex justify-between">
                 <h1>Phone Number</h1>
-                <h1>{user[0].phone}</h1>
+
+                <h1> {
+
+                  Object.entries(user[0]).length == 0
+                    ? "Loading...."
+                    : user[0].phone
+                }</h1>
               </div>
 
               <hr />
@@ -441,9 +459,15 @@ const PersonalInfo = () => {
               <div className="flex justify-between">
                 <div>
                   <h1 className="">Change USDT Address</h1>
-                  <span> {mask(user[0].usdt_address)}</span>
+                  <span>  {
+
+                    Object.entries(user[0]).length == 0
+                      ? "Loading...."
+                      : user[0].usdt_address != null ? mask(user[0].usdt_address) : <></>
+                  }
+                  </span>
                 </div>
-                {/* [0].usdt_address */}
+              
                 <label
 
                   htmlFor="my-modal-7"

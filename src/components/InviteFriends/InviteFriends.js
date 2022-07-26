@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateDashboardMessage } from "../../store/slice";
 import { authkey } from "../Login/authkey";
 import { toast } from "react-toastify";
+import { apiUrl } from "../Login/baseurl";
 const InviteFriends = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const InviteFriends = () => {
   dashboardProfile.append("logged", localStorage.getItem("auth"));
 
   useEffect(() => {
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: dashboardProfile,
     })

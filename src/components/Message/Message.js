@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { IoIosArrowBack } from "react-icons/io";
 import { authkey } from "../Login/authkey";
+import { apiUrl } from "../Login/baseurl";
 const Message = () => {
   const [messageLimit, setMessageLimit] = useState();
   const [message, setMessage] = useState([]);
@@ -13,7 +13,7 @@ const Message = () => {
     allHistory.append("history", "");
     allHistory.append("limit", 500);
 
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: allHistory,
     })

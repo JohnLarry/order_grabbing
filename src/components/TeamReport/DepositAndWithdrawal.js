@@ -9,6 +9,7 @@ import { updateTeamWithdraw } from "../../store/slice";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import { apiUrl } from "../Login/baseurl";
 const DepositAndWithdrawal = () => {
   const [showCalender, setShowCalender] = useState(false);
   const dispatch = useDispatch();
@@ -62,7 +63,7 @@ const DepositAndWithdrawal = () => {
   }
 
   useEffect(() => {
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: teamDeposit,
     })

@@ -21,6 +21,7 @@ import { updateDashboardMessage } from "../../store/slice";
 import teamReport from "../../images/eb36604.svg";
 import wheelSpin from "../../images/wheelSpinBgrmv.png";
 import account from "../../images/88ac34a.svg";
+import { apiUrl } from "../Login/baseurl";
 
 const Home = () => {
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -54,7 +55,7 @@ const Home = () => {
   lock.append("logged", localStorage.getItem("auth"));
 
   useEffect(() => {
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: dashboard,
     })
@@ -79,7 +80,7 @@ const Home = () => {
     
   };
   const addLockFund = () => {
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: lock,
     })

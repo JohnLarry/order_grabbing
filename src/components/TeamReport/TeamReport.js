@@ -5,6 +5,7 @@ import { authkey } from "../Login/authkey";
 import { updateTeamReports } from "../../store/slice";
 import usdt from "../../images/usdt.png";
 import { AiFillQuestionCircle } from "react-icons/ai";
+import { apiUrl } from "../Login/baseurl";
 
 const TeamReport = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const TeamReport = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: teamReport,
     })

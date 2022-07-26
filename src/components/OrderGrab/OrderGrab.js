@@ -9,6 +9,7 @@ import { updateUser } from "../../store/slice";
 import { toast } from 'react-toastify';
 import usdt from "../../images/usdt.png";
 import Typewriter from "../../Shared/Typewriter";
+import { apiUrl } from "../Login/baseurl";
 
 const OrderGrab = () => {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ const OrderGrab = () => {
 
     setGrabProductslogic(0);
 
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: grab,
     })
@@ -74,7 +75,7 @@ const OrderGrab = () => {
       });
   };
   const grabOrderStats = () => {
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: grabStats,
     })
@@ -125,7 +126,7 @@ const OrderGrab = () => {
 
   useEffect(() => {
     grabOrderStats();
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: dashboard,
     })
@@ -162,13 +163,7 @@ const OrderGrab = () => {
       <div className=" lg:px-5 md:px-5 px-4  ">
         <section className="my-7  py-3 rounded-xl ">
           <div className="card lg:card-side  shadow-xl bg-base-200 ">
-            <figure>
-              <img
-                className="w-5/6 my-5 shadow-xl  rounded-lg"
-                src="https://mediakonsumen.com/files/2020/10/putus-mitra-gra_b.jpg"
-                alt="Album"
-              />
-            </figure>
+          
             <div className="card-body flex justify-center ">
               <div>
                 <h2 className="card-title text-4xl mb-2  font-bold">

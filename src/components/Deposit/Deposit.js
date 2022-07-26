@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { authkey } from "../Login/authkey";
 import "./Deposit.css";
 import usdt from "../../images/usdt.png";
+import { apiUrl } from "../Login/baseurl";
 
 const Deposit = () => {
   const [deposits, setDeposits] = useState();
@@ -32,7 +33,7 @@ const Deposit = () => {
   deposit.append("deposit", "");
   deposit.append("create", "");
   useEffect(() => {
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: deposit,
     })

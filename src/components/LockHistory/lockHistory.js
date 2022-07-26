@@ -7,6 +7,7 @@ import { AiFillQuestionCircle } from "react-icons/ai";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import Countdown from "react-countdown";
+import { apiUrl } from "../Login/baseurl";
 const LockHistory = () => {
   let count = 1;
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const LockHistory = () => {
   dashboard.append("auth", authkey);
   dashboard.append("logged", localStorage.getItem("auth"));
   useEffect(() => {
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: dashboard,
     })
@@ -51,7 +52,7 @@ const LockHistory = () => {
     lock.append("auth", authkey);
     lock.append("logged", localStorage.getItem("auth"));
 
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: lock,
     })

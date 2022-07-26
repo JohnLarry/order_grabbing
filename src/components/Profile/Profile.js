@@ -19,6 +19,7 @@ import { updateDashboardMessage } from "../../store/slice";
 import { authkey } from "../Login/authkey";
 import wheelSpin from "../../images/wheelSpinBgrmv.png";
 import usdt from "../../images/usdt.png";
+import { apiUrl } from "../Login/baseurl";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Profile = () => {
   logoutUserData.append("logged", localStorage.getItem("auth"));
 
   useEffect(() => {
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: dashboardProfile,
     })
@@ -55,7 +56,7 @@ const Profile = () => {
     return Number.parseFloat(x).toFixed(2);
   };
   const logout = () => {
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: logoutUserData,
     })

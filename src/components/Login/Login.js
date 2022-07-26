@@ -3,12 +3,12 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import logo from "../../images/logo.png";
+import logo from "../../files/Logo.png";
 import { authkey, logged } from "./authkey";
+import { apiUrl } from "./baseurl";
 
 const Login = () => {
   const navigate = useNavigate();
-
   const {
     register,
     handleSubmit,
@@ -22,7 +22,7 @@ const Login = () => {
     login.append("auth", authkey);
     login.append("login", "1");
 
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: login,
     })

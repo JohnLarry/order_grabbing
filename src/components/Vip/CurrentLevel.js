@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import vipLogo from "../../images/278df00.svg";
 import { IoIosArrowBack } from "react-icons/io";
 
+
 const CurrentLevel = () => {
   return (
     <div className="container max-w-[1080px] mx-auto p-5">

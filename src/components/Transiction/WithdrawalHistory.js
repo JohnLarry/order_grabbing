@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { authkey } from "../Login/authkey";
 import Transiction from "./Transiction";
+import { apiUrl } from "../Login/baseurl";
 
 const WithdrawalHistory = () => {
   const [dataLimit, setDataLimit] = useState();
@@ -17,7 +18,7 @@ const WithdrawalHistory = () => {
     history.append("limit", 500);
     history.append("auth", authkey);
     history.append("logged", localStorage.getItem("auth"));
-    fetch("https://mining-nfts.com/api/", {
+    fetch(apiUrl, {
       method: "POST",
       body: history,
     })
