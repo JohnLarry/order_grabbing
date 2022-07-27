@@ -54,7 +54,9 @@ const EarnHistory = () => {
   } else if (dataLimit == 7) {
     d = a6;
   }
-
+  const format = (x) => {
+    return Number.parseFloat(x).toFixed(4);
+  };
   return (
     <div>
       <OrderHistory></OrderHistory>
@@ -93,7 +95,7 @@ const EarnHistory = () => {
                 <tbody key={p?.id}>
                   <tr>
                     <th>{p?.id}</th>
-                    <td>{p?.amount}</td>
+                    <td>{format(p?.amount)}</td>
                     <td>
                       <div>
                         {p?.type == "grab_team" ? (

@@ -103,9 +103,12 @@ const Wheel4 = () => {
                         setPrizeNumber(newPrizeNumber);
                         setMustSpin(true);
                         setWinner(item);
+                      
                         if (newPrize != 0) {
+                           
                             var eewrER = new FormData();
-                            eewrER.append("winAmount", newPrize);
+                            eewrER.append("winAmount", item.option);
+                            eewrER.append("spinner", "");
                             eewrER.append("auth", authkey);
                             eewrER.append("logged", localStorage.getItem('auth'));
                             fetch(apiUrl, {
@@ -117,6 +120,14 @@ const Wheel4 = () => {
                                     if (sdfRTE.status == 100) {
                                         toast.error(spHs.message);
 
+                                    }else if(sdfRTE.status == 200) {
+                                        toast.success(spHs.message);
+
+                                    }else{
+                                        
+                                        toast.error(spHs.message);
+
+                                    
                                     }
 
                                 }, []);

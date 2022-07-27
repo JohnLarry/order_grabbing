@@ -84,9 +84,7 @@ const Profile = () => {
   var dashboardMessagex = useSelector(
     (state) => state.dashboardmessage.message
   );
-  const format = (x) => {
-    return Number.parseFloat(x).toFixed(2);
-  };
+
   const logout = () => {
     fetch(apiUrl, {
       method: "POST",
@@ -233,26 +231,26 @@ const Profile = () => {
             <div className="flex justify-between">
               <h1 className="text-sm md:text-xl">Total Account Balance</h1>
               <h1 className="flex text-sm md:text-xl">
-                {format(dashboardMessagex.asset)}<img src={usdt} width="22" className="m-1 pt-[1px]" alt="" />
+                {dashboardMessagex.asset}<img src={usdt} width="22" className="m-1 pt-[1px]" alt="" />
               </h1>
             </div>
 
             <div className="flex justify-between">
               <h1 className="text-sm md:text-xl">Available Grab Balance</h1>
               <h1 className="flex text-sm md:text-xl">
-                {format(dashboardMessagex.grab_balance)}<img src={usdt} width="22" className="m-1 pt-[1px]" alt="" />
+                {dashboardMessagex.grab_balance}<img src={usdt} width="22" className="m-1 pt-[1px]" alt="" />
               </h1>
             </div>
             <div className="flex justify-between">
               <h1 className="text-sm md:text-xl">Today's Grab Profit</h1>
               <h1 className="flex text-sm md:text-xl">
-                {format(dashboardMessagex.today_profit)}<img src={usdt} width="22" className="m-1 pt-[1px]" alt="" />
+                {dashboardMessagex.today_profit}<img src={usdt} width="22" className="m-1 pt-[1px]" alt="" />
               </h1>
             </div>
             <div className="flex justify-between">
               <h1 className="text-sm md:text-xl">Total Grab Profit</h1>
               <h1 className="flex text-sm md:text-xl">
-                {format(dashboardMessagex.totalgrab)}<img src={usdt} width="22" className="m-1 pt-[1px]" />
+                {dashboardMessagex.totalgrab}<img src={usdt} width="22" className="m-1 pt-[1px]" />
               </h1>
             </div>
             <div className="flex justify-between  items-center">
@@ -264,7 +262,7 @@ const Profile = () => {
               <div className="flex">
 
                 <h1 className="flex text-sm md:text-xl">
-                  {format(dashboardMessagex.locked_asset)}<img src={usdt} width="22" className="m-1 pt-[1px]" />
+                  {dashboardMessagex.locked_asset}<img src={usdt} width="22" className="m-1 pt-[1px]" />
                 </h1>
               </div>
 
@@ -272,20 +270,20 @@ const Profile = () => {
             <div className="flex justify-between">
               <h1 className="text-sm md:text-xl">Lifetime Staked Profit </h1>
               <h1 className="flex text-sm md:text-xl">
-                {format(dashboardMessagex.stakeProfit)}<img src={usdt} width="22" className="m-1 pt-[1px]" />
+                {dashboardMessagex.stakeProfit}<img src={usdt} width="22" className="m-1 pt-[1px]" />
               </h1>
             </div>
 
             <div className="flex justify-between">
               <h1 className="text-sm md:text-xl">Lifetime Team Commission</h1>
               <h1 className="flex text-sm md:text-xl">
-                {format(dashboardMessagex.promotion_bonus)}<img src={usdt} width="22" className="m-1 pt-[1px]" />
+                {dashboardMessagex.promotion_bonus}<img src={usdt} width="22" className="m-1 pt-[1px]" />
               </h1>
             </div>
             <div className="flex justify-between">
               <h1 className="text-sm md:text-xl">Lifetime Account Profit </h1>
               <h1 className="flex text-sm md:text-xl">
-                {format(dashboardMessagex.stakePlusGrab)} <img src={usdt} width="22" className="m-1 pt-[1px]" />
+                {dashboardMessagex.stakePlusGrab} <img src={usdt} width="22" className="m-1 pt-[1px]" />
               </h1>
             </div>
           </div>

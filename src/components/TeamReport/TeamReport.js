@@ -216,42 +216,42 @@ const TeamReport = () => {
               </div>
               <div className="flex justify-between items-center">
                 <h1 className="text-xs md:text-sm">
-                  Layer One (Total Members){" "}
+                  Layer One (Active / Inactive Members){" "}
                 </h1>
                 <h1 className="text-xs md:text-sm">
-                  {teamReportData?.memberLayers?.layer1}
-                </h1>
-              </div>
-              <div className="flex justify-between items-center">
-                <h1 className="text-xs md:text-sm">
-                  Layer Two (Total Members){" "}
-                </h1>
-                <h1 className="text-xs md:text-sm">
-                  {teamReportData?.memberLayers?.layer2}
+                  {teamReportData?.memberLayers?.layer1} / {teamReportData?.inactiveMemberLayers?.layer1}
                 </h1>
               </div>
               <div className="flex justify-between items-center">
                 <h1 className="text-xs md:text-sm">
-                  Layer Three (Total Members){" "}
+                  Layer Two (Active / Inactive Members){" "}
                 </h1>
                 <h1 className="text-xs md:text-sm">
-                  {teamReportData?.memberLayers?.layer3}
-                </h1>
-              </div>
-              <div className="flex justify-between items-center">
-                <h1 className="text-xs md:text-sm">
-                  Layer Four (Total Members){" "}
-                </h1>
-                <h1 className="text-xs md:text-sm">
-                  {teamReportData?.memberLayers?.layer4}
+                  {teamReportData?.memberLayers?.layer2} / {teamReportData?.inactiveMemberLayers?.layer2}
                 </h1>
               </div>
               <div className="flex justify-between items-center">
                 <h1 className="text-xs md:text-sm">
-                  Layer Five (Total Members){" "}
+                  Layer Three (Active / Inactive Members){" "}
                 </h1>
                 <h1 className="text-xs md:text-sm">
-                  {teamReportData?.memberLayers?.layer5}
+                  {teamReportData?.memberLayers?.layer3} / {teamReportData?.inactiveMemberLayers?.layer3}
+                </h1>
+              </div>
+              <div className="flex justify-between items-center">
+                <h1 className="text-xs md:text-sm">
+                  Layer Four (Active / Inactive Members){" "}
+                </h1>
+                <h1 className="text-xs md:text-sm">
+                  {teamReportData?.memberLayers?.layer4} / {teamReportData?.inactiveMemberLayers?.layer4}
+                </h1>
+              </div>
+              <div className="flex justify-between items-center">
+                <h1 className="text-xs md:text-sm">
+                  Layer Five (Active / Inactive Members){" "}
+                </h1>
+                <h1 className="text-xs md:text-sm">
+                  {teamReportData?.memberLayers?.layer5} / {teamReportData?.inactiveMemberLayers?.layer5}
                 </h1>
               </div>
               <hr />
@@ -288,7 +288,7 @@ const TeamReport = () => {
                       </label>
 
                       <p className="text-xs md:text-sm mt-10">
-                      A active member is a user who has at least 100  <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" /> in his Grab balance (Staked balance does not count).
+                      An active member is a user who has at least 100  <img className="inline ml-1 h-[20px] w-[20px]" src={usdt} alt="" /> in his Grab balance (Staked balance does not count).
                         
                       </p>
                     </div>

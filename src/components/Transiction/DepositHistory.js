@@ -57,7 +57,9 @@ const DepositeHistory = () => {
     d = a6;
   }
 
-
+  const format = (x) => {
+    return Number.parseFloat(x).toFixed(4);
+  };
   return (
     <div >
    
@@ -100,7 +102,7 @@ const DepositeHistory = () => {
                   <th>{count++}</th>
                   <td>{p?.pay_address}</td>
 
-                  <td>{p?.price_amount}</td>
+                  <td>{format(p?.price_amount)}</td>
 
                   <td>
                     <div className="text-center ">

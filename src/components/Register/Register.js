@@ -117,7 +117,7 @@ const Register = () => {
               })}
             />
             {errors.username && (
-              <small className="text-red-600">User name is required</small>
+              <small className="text-red-600">User name is required(min 3 max 12 length)</small>
             )}
           </div>
           <div className="form-control">
@@ -135,7 +135,7 @@ const Register = () => {
               })}
             />
             {errors.password && (
-              <small className="text-red-600">Password is required</small>
+              <small className="text-red-600">Password is required(min 6 max 12 length)</small>
             )}
           </div>
 

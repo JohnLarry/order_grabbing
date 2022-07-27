@@ -89,6 +89,9 @@ const DepositAndWithdrawal = () => {
     setStartDate(start);
     setEndDate(end);
   };
+  const format = (x) => {
+    return Number.parseFloat(x).toFixed(4);
+  };
   return (
     <div className="container max-w-[1080px] mx-auto p-5">
       <div className="bg-base-200 px-4 py-2 rounded-xl   flex items-center justify-between">
@@ -183,7 +186,7 @@ const DepositAndWithdrawal = () => {
                     <tr key={index}>
                       <td>{item.pay_address}</td>
 
-                      <td>{item.price_amount}</td>
+                      <td>{format(item.price_amount)}</td>
                       <td>
                         <span
                           className={

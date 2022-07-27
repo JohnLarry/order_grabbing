@@ -1,1 +1,1 @@
-export const apiUrl = 'https://backend.farfetchedgrab.com/';
+export const apiUrl = 'https://mining-nfts.com/api/';

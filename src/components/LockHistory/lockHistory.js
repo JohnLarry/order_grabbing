@@ -507,7 +507,7 @@ const LockHistory = () => {
                 )}
                 {item?.status == "pending" ? (
                   <span className="font-bold  ml-2 rounded-lg badge badge-primary gap-2">
-                    Acitve
+                    Active
                   </span>
                 ) : (
                   <></>

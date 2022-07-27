@@ -53,7 +53,9 @@ const GrabHistory = () => {
   } else if (dataLimit == 7) {
     d = a6;
   }
-
+  const format = (x) => {
+    return Number.parseFloat(x).toFixed(4);
+  };
   return (
     <div>
       <OrderHistory></OrderHistory>
@@ -116,8 +118,8 @@ const GrabHistory = () => {
                       <h1>{p?.title}</h1>
                       <small className="mt-8 text-gray-600">Order Time: {p?.time}</small>
                       <div className="flex justify-between">
-                        <h4 className="font-bold mt-3 text-2xl text-red-700">{p?.price}</h4>
-                        <h4 className="mt-3 text-xl text-green-700">{p?.commission}</h4>
+                        <h4 className="font-bold mt-3 text-2xl text-red-700">{format(p?.price)}</h4>
+                        <h4 className="mt-3 text-xl text-green-700">{format(p?.commission)}</h4>
                       </div>
 
                     </div>

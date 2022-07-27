@@ -56,7 +56,9 @@ const WithdrawalHistory = () => {
   } else if (dataLimit == 7) {
     d = a6;
   }
-
+  const format = (x) => {
+    return Number.parseFloat(x).toFixed(4);
+  };
   return (
     <div >
       <Transiction></Transiction>
@@ -100,7 +102,7 @@ const WithdrawalHistory = () => {
                   <th>{count++}</th>
                   <td>{p?.number}</td>
 
-                  <td>{p?.amount}</td>
+                  <td>{format(p?.amount)}</td>
 
                   <td>
                     <div className="text-center ">

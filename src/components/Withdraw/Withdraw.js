@@ -1,11 +1,35 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import { updateUser } from "../../store/slice";
+import { useEffect } from "react";
 import { authkey } from "../Login/authkey";
 import usdt from "../../images/usdt.png";
 import { apiUrl } from "../Login/baseurl";
 
 const Withdraw = () => {
+  const dispatch = useDispatch();
+  var dashboard = new FormData();
+  dashboard.append("dashboard", "");
+  dashboard.append("auth", authkey);
+  dashboard.append("logged", localStorage.getItem("auth"));
+
+
+  useEffect(() => {
+    fetch(apiUrl, {
+      method: "POST",
+      body: dashboard,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status == 200) {
+          dispatch(updateUser(data.message.user));
+        } else {
+          navigate("/login");
+        }
+      });
+  }, []);
+
   let withDrawData = {};
   const [message, setMessage] = useState("");
   const [password, setPassword] = useState("");
@@ -127,7 +151,9 @@ const Withdraw = () => {
       setDivData("Withdraw password is incorrect ");
     }
   };
-
+  const format = (x) => {
+    return Number.parseFloat(x).toFixed(4);
+  };
   return (
     <div className="container max-w-[1080px] mx-auto p-5">
       <div className="bg-base-200 px-4 py-2 rounded-xl   flex items-center justify-between">
@@ -156,7 +182,7 @@ const Withdraw = () => {
           <h1 className="text-center text-xl font-bold">
             Balance{" "}
             <span className="text-xl font-bold text-green-700">
-              {user[0]?.main_balance}{" "}
+              {format(user[0]?.main_balance)}{" "}
             </span>{" "}
             <img className="inline ml-1 h-[24px] w-[24px]" src={usdt} alt="" />
           </h1>
