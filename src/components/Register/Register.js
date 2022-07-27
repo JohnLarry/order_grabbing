@@ -9,12 +9,23 @@ import { apiUrl } from "../Login/baseurl";
 const Register = () => {
   const { invitecode } = useParams();
   const navigate = useNavigate();
-  const loginedCheck = localStorage.getItem("auth");
 
+  var logoutUser = new FormData();
+  logoutUser.append("logged", localStorage.getItem("auth"));
+  logoutUser.append("auth", authkey);
+  logoutUser.append("login", "1");
   useEffect(() => {
-    if (loginedCheck != null) {
-      navigate("/");
-    }
+    fetch(apiUrl, {
+      method: "POST",
+      body: logoutUser,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        reset();
+        if (data.status == 300) {
+          navigate("/");
+        }
+      });
   }, []);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +53,6 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((resp) => {
-    
         if (resp.status == 200) {
           var login = new FormData();
           login.append("username", data.username);
@@ -56,14 +66,12 @@ const Register = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-           
               reset();
               if (data.status == 200) {
                 localStorage.setItem("auth", data.message);
                 navigate("/");
               } else if (data.status == 100) {
                 toast.error(data.message);
-               
               } else if (data.status == 300) {
                 toast.dark(data.message);
               }
@@ -117,7 +125,9 @@ const Register = () => {
               })}
             />
             {errors.username && (
-              <small className="text-red-600">User name is required(min 3 max 12 length)</small>
+              <small className="text-red-600">
+                User name is required(min 3 max 12 length)
+              </small>
             )}
           </div>
           <div className="form-control">
@@ -135,7 +145,9 @@ const Register = () => {
               })}
             />
             {errors.password && (
-              <small className="text-red-600">Password is required(min 6 max 12 length)</small>
+              <small className="text-red-600">
+                Password is required(min 6 max 12 length)
+              </small>
             )}
           </div>
 

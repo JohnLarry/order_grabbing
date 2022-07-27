@@ -1,0 +1,24 @@
+.about-container {
+  width: 100%;
+  height: 600px;
+  position: fixed;
+  top: 75px;
+  background-image: url("../../images/2593068.webp");
+  background-size: cover;
+  -webkit-background-size: cover;
+  background-position: center center;
+}
+
+.image {
+  height: 300px;
+  width: 400px;
+}
+
+.banner-area h2 {
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.content-area {
+  position: relative;
+}
