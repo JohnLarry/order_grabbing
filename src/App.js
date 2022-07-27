@@ -23,25 +23,24 @@ import LockHistory from "./components/LockHistory/lockHistory";
 import Transiction from "./components/Transiction/Transiction";
 import Wheel4 from "./components/Wheel4/Wheel4";
 import ProtectedRoute from "./protectedRoute";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Profile from "./components/Home/Profile"
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Profile from "./components/Home/Profile";
+import RecoverPassword from "./components/passwordRecovery/passwordRecovery";
+import RuleDescription from "./components/RuleDescription/RuleDescription";
 
 function App() {
   return (
     <div className="app">
       <Routes>
         <Route path="/" element={<ProtectedRoute />}>
-
           <Route path="/" element={<Profile></Profile>} />
         </Route>
         <Route path="" element={<ProtectedRoute />}>
-
-<Route path="" element={<Profile></Profile>} />
-</Route>
+          <Route path="" element={<Profile></Profile>} />
+        </Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
-
 
         <Route
           path="/register/:invitecode"
@@ -75,11 +74,10 @@ function App() {
             path="/vip/current-level"
             element={<CurrentLevel></CurrentLevel>}
           ></Route>
-
         </Route>
 
-        <Route path="/summary" element={<ProtectedRoute />}>
-          <Route path="/summary" element={<Summary></Summary>}></Route>
+        <Route path="/membership" element={<ProtectedRoute />}>
+          <Route path="/membership" element={<Summary></Summary>}></Route>
         </Route>
 
         <Route path="/profile" element={<ProtectedRoute />}>
@@ -102,7 +100,6 @@ function App() {
             element={<TeamReport></TeamReport>}
           />
         </Route>
-
 
         <Route path="/deposit-withdraw" element={<ProtectedRoute />}>
           <Route
@@ -171,13 +168,13 @@ function App() {
             element={<EarnHistory></EarnHistory>}
           ></Route>
         </Route>
-        <Route path="/lucky-spin" element={<ProtectedRoute />}>
-          <Route
-            path="/lucky-spin"
-            element={<Wheel4></Wheel4>}
-          ></Route>
+        <Route path="/rules" element={<ProtectedRoute />}>
+          <Route path="/rules" element={<RuleDescription />}></Route>
         </Route>
-
+        <Route path="/lucky-spin" element={<ProtectedRoute />}>
+          <Route path="/lucky-spin" element={<Wheel4></Wheel4>}></Route>
+        </Route>
+        <Route path="/recover" element={<RecoverPassword />}></Route>
         <Route path="/*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />

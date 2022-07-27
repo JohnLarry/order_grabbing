@@ -28,26 +28,36 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-       
         reset();
         if (data.status == 200) {
           localStorage.setItem("auth", data.message);
           navigate("/");
         } else if (data.status == 100) {
           toast.error(data.message);
-         
         } else if (data.status == 300) {
           toast.dark(data.message);
         }
       });
   };
-  const loginedCheck = localStorage.getItem("auth");
 
+  var logoutUser = new FormData();
+  logoutUser.append("logged", localStorage.getItem("auth"));
+  logoutUser.append("auth", authkey);
+  logoutUser.append("login", "1");
   useEffect(() => {
-    if (loginedCheck != null) {
-      navigate("/");
-    }
+    fetch(apiUrl, {
+      method: "POST",
+      body: logoutUser,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        reset();
+        if (data.status == 300) {
+          navigate("/");
+        }
+      });
   }, []);
+
   return (
     <div className="container max-w-[1080px] mx-auto p-5">
       <div className="flex flex-col items-center mt-28">
@@ -96,6 +106,12 @@ const Login = () => {
           Don't have an account?{" "}
           <Link to="/register" className="text-primary">
             Register here
+          </Link>
+        </p>
+        <p>
+          Forgot password?{" "}
+          <Link to="/recover" className="text-primary">
+            Recover here
           </Link>
         </p>
       </div>
